@@ -1,0 +1,108 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>🌟StarsTech</title>
+<link rel="stylesheet" href="{% static 'core/style.css' %}">
+<link rel="stylesheet" href="staticfiles/core/style.css">
+</head>
+<body>
+
+<header>
+  <a href="#hero" class="logo-link">
+    <h1>🌟StarsTech</h1>
+  </a>
+  <nav>
+    <a href="#sobre">📘 Sobre</a>
+    <a href="#missao">🎯 Missão</a>
+    <a href="#visao">🔭 Visão</a>
+    <a href="#valores">💚 Valores</a>
+    <a href="#contato">📬 Contato</a>
+  </nav>
+</header>
+
+
+<main class="container">
+  <section id="hero" class="section active">
+    <h2>Inovação sustentável, acesso digital para todos.</h2>
+    <p>Conectando tecnologia, educação e meio ambiente.</p>
+  </section>
+
+  <section id="sobre" class="section">
+    <h3>📘 Sobre a StarsTech</h3>
+    <p>A StarsTech é uma organização que atua na inclusão digital e na sustentabilidade, oferecendo cursos na área de tecnologia da informação, fomentando a educação, inovação e a reutilização de materiais eletrônicos.</p>
+  </section>
+
+  <section id="missao" class="section">
+    <h3>🎯 Missão</h3>
+    <p>Promover a inclusão digital e a sustentabilidade através de educação acessível e tecnologia, capacitando pessoas para um futuro melhor.</p>
+  </section>
+
+  <section id="visao" class="section">
+    <h3>🔭 Visão</h3>
+    <p>Ser referência nacional em educação tecnológica sustentável e inclusão digital, promovendo transformação social.</p>
+  </section>
+
+  <section id="valores" class="section">
+    <h3>💚 Valores</h3>
+    <ul>
+      <li>Inclusão e acessibilidade</li>
+      <li>Sustentabilidade ambiental</li>
+      <li>Educação de qualidade</li>
+      <li>Inovação aberta e colaborativa</li>
+      <li>Ética e transparência</li>
+    </ul>
+  </section>
+
+  <section id="contato" class="section">
+    <h3>📬 Contato</h3>
+    <form action="https://formspree.io/f/moqzypla" method="POST" class="contact-form">
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" required placeholder="Seu nome" />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="_replyto" required placeholder="seu@email.com" />
+
+      <label for="message">Mensagem:</label>
+      <textarea id="message" name="message" rows="5" required placeholder="Escreva sua mensagem"></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 StarsTech - Inclusão Digital e Sustentabilidade
+</footer>
+
+<script>
+  // Ativar efeito na seção visível
+  const sections = document.querySelectorAll('.section');
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.6
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        sections.forEach(s => s.classList.remove('active'));
+        entry.target.classList.add('active');
+      }
+    });
+  }, options);
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>

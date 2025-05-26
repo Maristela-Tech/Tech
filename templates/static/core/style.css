@@ -1,0 +1,231 @@
+:root {
+  --fundo: #0D1B1E;
+  --verde-profundo: #1F5135;
+  --dourado: #D4AF37;
+  --texto-claro: #E0E0E0;
+  --verde-destaque: #4CAF50;
+  --cinza-médio: #A0A0A0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--fundo);
+  color: var(--texto-claro);
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+header {
+  background-color: var(--verde-profundo);
+  padding: 1rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+}
+
+header h1 {
+  color: var(--dourado);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  margin: 0 0.5rem;
+  color: var(--verde-destaque);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Container para scroll snap */
+.container {
+  margin-top: 70px; /* altura do header fixo */
+  height: calc(100vh - 70px);
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+/* Cada seção ocupa tela cheia */
+.section {
+  scroll-snap-align: start;
+  height: calc(100vh - 70px);
+  padding: 3rem 2rem;
+  border-top: 1px solid #1a2b2e;
+  opacity: 0.4;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section.active {
+  opacity: 1;
+  transform: translateY(0);
+  box-shadow: 0 0 30px var(--verde-destaque);
+  border-radius: 12px;
+  background: rgba(31,81,53, 0.5);
+}
+
+/* Hero com padrão sutil de circuito */
+#hero {
+  background-image:
+    linear-gradient(rgba(13, 27, 30, 0.85), rgba(13, 27, 30, 0.85)),
+    url('https://www.toptal.com/designers/subtlepatterns/patterns/circuit-board.png');
+  background-size: auto 200px;
+  background-position: center;
+  background-repeat: repeat;
+  color: var(--texto-claro);
+  text-align: center;
+  padding-top: 100px;
+}
+
+#hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#hero p {
+  font-size: 1.5rem;
+  color: var(--cinza-médio);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.section h3 {
+  color: var(--dourado);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li::before {
+  content: "✔ ";
+  color: var(--verde-destaque);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--cinza-médio);
+}
+
+/* Formulário de contato */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form label {
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.7rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  resize: vertical;
+  background-color: #2c4b37;
+  color: var(--texto-claro);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--cinza-médio);
+}
+
+.contact-form button {
+  margin-top: 1.5rem;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--verde-destaque);
+  color: var(--fundo);
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #3fb76f;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  #hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .section h3 {
+    font-size: 1.6rem;
+  }
+}
+.logo-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo-link h1 {
+  margin: 0;             /* mantém o estilo original */
+  color: var(--dourado);
+}
